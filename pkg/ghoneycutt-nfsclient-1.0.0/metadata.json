@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "dependencies": [
+
+  ],
+  "name": "ghoneycutt-nfsclient",
+  "checksums": {
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "README": "ae5346f66a1208a2d75a073ddbc7562a",
+    "tests/init.pp": "197b8c5041a0f2621b833b318263f82d",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "metadata.json": "d34d0b70aba36510fbc2df4e667479ef",
+    "Modulefile": "74696716a1f9337f0bda4cb55aedec08",
+    "manifests/init.pp": "d671bcdd6b2f32ca8da58769dbb4d3f8"
+  },
+  "types": [
+
+  ]
+}

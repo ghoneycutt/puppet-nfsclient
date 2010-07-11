@@ -4,7 +4,14 @@
 #
 class nfsclient { 
 
-    service { [ "nfslock", "portmap", "netfs" ]: 
-        enable => true,
+    Service { enable => true }
+
+    service { 
+        "netfs":;
+        "nfslock":
+            ensure  => running, 
+            pattern => "rpc.statd";
+        "portmap":
+             ensure => running;
     } # service
 } # class nfsclient

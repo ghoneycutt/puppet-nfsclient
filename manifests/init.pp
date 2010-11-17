@@ -4,6 +4,11 @@
 #
 class nfsclient { 
 
+    package {
+        "nfs-utils":;
+        "portmap":;
+    } # package
+
     Service { enable => true }
 
     service { 

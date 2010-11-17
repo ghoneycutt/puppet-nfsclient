@@ -1,0 +1,9 @@
+1.0.0 - 20100701
+    * initial release
+
+1.1.0 - 20100712
+    * rewrite by Eric Heydrick - http://github.com/eheydrick
+        ensures that nfslock and portmap are really running
+
+1.2.0 - 20101117
+  * ensures that nfs related packages are installed

@@ -7,3 +7,6 @@
 
 1.2.0 - 20101117
   * ensures that nfs related packages are installed
+
+1.2.1 - 20120130
+  * select appropriate packages and services for different platforms

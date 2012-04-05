@@ -10,13 +10,17 @@ class nfsclient {
             $services = [ "portmap", "statd" ]
         }
         "RedHat", "CentOS": {
+          if $lsbmajdistrelease < 6 {
+            $packages = [ "nfs-utils", "portmap" ]
+            $services = [ "nfslock", "portmap" ]
+          }
+          else {
             $packages = [ "nfs-utils", "rpcbind" ]
             $services = [ "nfslock", "rpcbind" ]
+          }
         }
         default: {
-            notify {
-            "Unable to configure NFS client for $operatingsystem systems.":
-            }
+            fail("Unable to configure NFS client for $operatingsystem systems.")
         }
     }
 

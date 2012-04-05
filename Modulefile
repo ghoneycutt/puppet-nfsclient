@@ -1,2 +1,2 @@
-name    'ghoneycutt-nfsclient'
-version '1.2.0'
+name    'hakamadare-nfsclient'
+version '1.2.2'

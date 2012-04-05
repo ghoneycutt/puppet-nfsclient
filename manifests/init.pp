@@ -2,21 +2,44 @@
 #
 # Setup an NFS client
 #
-class nfsclient { 
+class nfsclient {
+
+    case $operatingsystem {
+        "Ubuntu", "Debian": {
+            $packages = [ "nfs-client", "portmap" ]
+            $services = [ "portmap", "statd" ]
+        }
+        "RedHat", "CentOS": {
+          if $lsbmajdistrelease < 6 {
+            $packages = [ "nfs-utils", "portmap" ]
+            $services = [ "nfslock", "portmap" ]
+          }
+          else {
+            $packages = [ "nfs-utils", "rpcbind" ]
+            $services = [ "nfslock", "rpcbind" ]
+          }
+        }
+        default: {
+            fail("Unable to configure NFS client for $operatingsystem systems.")
+        }
+    }
+
+    Package {
+        ensure => present
+    }
 
     package {
-        "nfs-utils":;
-        "portmap":;
+        $packages:;
     } # package
 
-    Service { enable => true }
+    Service {
+        enable  => true,
+        ensure  => running,
+        require => Package[$packages]
+    }
 
-    service { 
-        "netfs":;
-        "nfslock":
-            ensure  => running, 
-            pattern => "rpc.statd";
-        "portmap":
-             ensure => running;
+    service {
+        $services:;
     } # service
+
 } # class nfsclient

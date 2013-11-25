@@ -7,3 +7,7 @@
 
 1.2.0 - 20101117
   * ensures that nfs related packages are installed
+
+DEPRECATED - 20131125
+  * This module has been neglected for quite some time and has been replaced
+      with ghoneycutt/nfs.
